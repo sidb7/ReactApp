@@ -9,9 +9,10 @@ import {IoPersonCircle} from 'react-icons/io5';
 import {VscFlame} from 'react-icons/vsc';
 import { WiHumidity } from 'react-icons/wi';
 import BatteryGauge from 'react-battery-gauge'
+var b1 =0;
 
 export default function Carditems(props) {
-  
+ { b1 =  (props.bpm>0)?parseInt(props.bpm) + 17:0;}
 
   return (
     <>
@@ -19,7 +20,7 @@ export default function Carditems(props) {
     <div className=' mt-4 rounded-4 ' style={{border:(props.alert===1||props.gas>50)?"solid red 5px":"solid orange 5px",backgroundColor:(props.mode==="dark")?"":"rgba(0, 0, 0, 0.600)"}} >
     <div className='row px-5  ' style={{height:"40px"} }><div className='col-1 '>{(props.alert===1||props.gas>50)?<AiOutlineWarning color='red' size={40}/>:" "}</div><div className='d-flex ps-3 justify-content-center  col-10'><div className= {`text-center w-75 fs-4 fw-semibold mb-1 text-white `} style={{backgroundColor:"#454441",borderRadius:"0px 0px 35px 35px"}} ><IoPersonCircle className='mb-1' size={30}/> {props.client}</div></div>
     
-    <div className='col-1'><BatteryGauge value={60} size={45} customization={{
+    {/* <div className='col-1'><BatteryGauge value={60} size={45} customization={{
       readingText: {
     lightContrastColor: '#fff',
     darkContrastColor: '#fff',
@@ -51,7 +52,8 @@ export default function Carditems(props) {
     interCellsGap: 1
   },
   
-  }}/></div>
+  }}/></div> */}
+  
     </div>
       <div className='px-4'>
     
@@ -91,15 +93,15 @@ export default function Carditems(props) {
        </div>
 
           {/* PROGRESS BAR */}
- 
+
    <div className='row  mb-3 text-center'>
     <div className='col-6 px-3'><h6 className='d-flex fw-bold' >METHANE:  { <div className='ms-1 fs-5 fw-bold 'style={{color:'orange'}}> {props.gas}%</div>} </h6>
     <div className="progress" role="progressbar" style={{height:"30px"}}  aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
   <div className="progress-bar progress-bar-striped progress-bar-animated "  style={{width:`${props.gas}%`,backgroundColor:(props.gas>50)?"red":"orange"}}><VscFlame size={30} color='black'/></div></div></div>
 
-    <div className=' col-6 px-3'><h6 className='d-flex fw-bold' >OXIMETER:  { <div className='ms-1 fs-5 fw-bold 'style={{color:'orange'}}> {props.gas}%</div>}  </h6>
-    <div className="progress" style={{height:"30px"}} role="progressbar" aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
-  <div className="progress-bar progress-bar-striped progress-bar-animated" style={{width:`${props.gas}%`,backgroundColor:(props.gas>50)?"red":"orange"}}><SiOxygen className='ms-2' size={20} color='black'/></div>
+    <div className=' col-6 px-3'><h6 className='d-flex fw-bold' >OXIMETER:  { <div className='ms-1 fs-5 fw-bold 'style={{color:'orange'}}> {  b1 }%</div>}  </h6>
+    <div className="progress" style={{height:"30px"}} role="progressbar" aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="200">
+  <div className="progress-bar progress-bar-striped progress-bar-animated" style={{width:`${b1}%`,backgroundColor:(props.bpm>100)?"red":"orange"}}><SiOxygen className='ms-2' size={20} color='black'/></div>
 </div></div>
    </div></div>
 
