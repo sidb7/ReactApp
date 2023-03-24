@@ -95,7 +95,7 @@ export default function Carditems(props) {
           {/* PROGRESS BAR */}
 
    <div className='row  mb-3 text-center'>
-    <div className='col-6 px-3'><h6 className='d-flex fw-bold' >METHANE:  { <div className='ms-1 fs-5 fw-bold 'style={{color:'orange'}}> {props.gas}%</div>} </h6>
+    <div className='col-6 px-3'><h6 className='d-flex fw-bold' >GAS:  { <div className='ms-1 fs-5 fw-bold 'style={{color:'orange'}}> {props.gas}%</div>} </h6>
     <div className="progress" role="progressbar" style={{height:"30px"}}  aria-label="Animated striped example" aria-valuemin="0" aria-valuemax="100">
   <div className="progress-bar progress-bar-striped progress-bar-animated "  style={{width:`${props.gas}%`,backgroundColor:(props.gas>50)?"red":"orange"}}><VscFlame size={30} color='black'/></div></div></div>
 
