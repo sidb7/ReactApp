@@ -19,7 +19,7 @@ const [users,setUser] = useState([])
 
   useEffect(() => {
     //const url = "https://sid-b7dd-123-44-435.loca.lt/alltasks";
-    const url = "http://52.64.235.96:8080/alltasks";
+    const url = "https://52.64.235.96:8080/alltasks";
 
     const fetchData = async () => {
       try {
